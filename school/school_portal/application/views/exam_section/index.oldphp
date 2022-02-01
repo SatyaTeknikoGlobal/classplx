@@ -1,0 +1,66 @@
+<?php
+/*
+| -----------------------------------------------------
+| PRODUCT NAME: 	MENTOR ERP
+| -----------------------------------------------------
+| AUTHOR:			Kshitij Kumar Singh
+| -----------------------------------------------------
+| EMAIL:			kshitij.singh@teknikoglobal.com
+| -----------------------------------------------------
+| COPYRIGHT:		RESERVED BY TEKNIKOGLOBAL
+| -----------------------------------------------------
+| WEBSITE:			https://www.teknikoglobal.com
+| -----------------------------------------------------
+*/
+?>
+<!-- .row -->
+<div class="row">
+    <div class="col-sm-812">
+        <div class="white-box">
+            <h3 class="box-title m-b-0"><?=$title?></h3>
+            <div class="table-responsive">
+                <table id="exam_table101" class="display table table-hover table-bordered" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-1">#ID</th>
+                            <th class="col-sm-2">Class Name</th>
+                            <th class="col-sm-2">Section Name</th>
+                            <th class="col-sm-2">Subject Name</th>
+                            <th class="col-sm-2">Exam Title</th>
+                            <th class="col-sm-1">Exam Date</th>
+                            <th class="col-sm-1">Status</th>
+                            <th class="col-sm-3">Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.row -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+<script type="text/javascript" language="javascript" >  
+    //$.noConflict();
+    $(document).ready(function(){  
+      var dataTable = $('#exam_table101').DataTable({  
+        "processing":true,  
+        "serverSide":true,  
+        "order":[],  
+        "ajax":{  
+          url:"<?php echo base_url() . 'exam/list_exam_section'; ?>",  
+          type:"POST",
+      },  
+      "columnDefs":[  
+      {  
+         "targets":[0, 3, 4],  
+         "orderable":false,  
+     },  
+     ],  
+ }); 
+
+  });  
+</script> 
